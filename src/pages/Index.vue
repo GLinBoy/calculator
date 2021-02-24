@@ -30,6 +30,7 @@
 
 <script>
 import anime from 'animejs/lib/anime.es.js'
+import { Parser } from 'expr-eval'
 
 export default {
   name: 'PageIndex',
@@ -122,7 +123,7 @@ export default {
     equal () {
       this.animateOperator('equal')
       if (this.operatorClicked === false) {
-        this.answer = this.eval(this.logList + this.current)
+        this.answer = Parser.evaluate(this.logList + this.current)
       } else {
         this.answer = 'WHAT?!!'
       }
